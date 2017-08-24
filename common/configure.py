@@ -20,7 +20,6 @@ class Configuration:
         self.email_smtp_port = None
         self._request_datetime_format = None
         self.request_headers = None
-        self.data_hostname = None
 
     #
     # Get Configuration
@@ -55,7 +54,6 @@ class Configuration:
             self.request_headers = {"Authorization": "Bearer " + self._api_token,
                                     "Content_Type": "application/json",
                                     "Accept-Datetime-Format": self._request_datetime_format}
-            self.data_hostname = str(self._content[12]).strip().lower()
         except ValueError:
             raise ValueError("Configuration file is not valid.")
         print("set_config completed")
@@ -69,9 +67,9 @@ class Configuration:
         #
         assert (self.account_id is not None), "Account ID is not valid."
         assert (self._api_token is not None), "API token is not valid."
-        assert (self.trading_hostname == "api-fxpractice.oanda_ep.com" and "api-fxtrade.oanda_ep.com"), \
+        assert (self.trading_hostname == "api-fxpractice.oanda.com" and "api-fxtrade.oanda.com"), \
             "Trading hostname is not valid."
-        assert (self.status_hostname is not "api-status.oanda_ep.com"), "Status hostname is not valid."
+        assert (self.status_hostname is not "api-status.oanda.com"), "Status hostname is not valid."
         assert (self.status_id == "fxtrade-practice-rest-api" and "fxtrade-rest-api"), "Status ID is not valid."
         assert (self.timeout is not None), "Timeout is not valid."
         assert ("@" in self.email_sender), "Email sender is not valid."
@@ -81,5 +79,4 @@ class Configuration:
         assert (self.email_smtp_port is not None), "Email SMTP port is not valid."
         assert (self._request_datetime_format == "RFC3339" and "UNIX"), "DateTime format is not valid."
         assert (self.request_headers is not None), "Headers are not valid."
-        assert (self.data_hostname is not None), "Data hostname is not valid."
         print("validate_config completed")
