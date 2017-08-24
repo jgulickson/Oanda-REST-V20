@@ -1,0 +1,12 @@
+<account-id>
+<api-token>
+<trading-hostname: must be either 'api-fxpractice.oanda.com' or api-fxtrade.oanda.com>
+<status-hostname: must be 'api-status.oanda.com'>
+<status-type: must be either 'fxtrade-practice-rest-api' or 'fxtrade-rest-api'>
+<request-timeout-in-seconds: suggested default '5'>
+<email-sender: formatted as 'email@domain'>
+<email-recipient: formatted as 'email@domain'>
+<smtp-password>
+<smtp-address>
+<smtp-port: typically '443' or '587'>
+<datetime-format: must be 'RFC3339' or 'UNIX'>
